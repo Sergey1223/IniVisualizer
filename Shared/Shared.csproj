@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7344DDEA-CEA5-49A9-B676-BD41075E0F10}</ProjectGuid>
+    <ProjectGuid>{142D793C-5C56-4FD4-A536-3712E04DBA29}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>IniClient</RootNamespace>
-    <AssemblyName>IniClient</AssemblyName>
+    <RootNamespace>Shared</RootNamespace>
+    <AssemblyName>Shared</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,27 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client\Client.cs" />
-    <Compile Include="Client\ClientConnectionEventArgs.cs" />
-    <Compile Include="Client\ClientUpdatedEventArgs.cs" />
-    <Compile Include="Client\ConnectionException.cs" />
-    <Compile Include="Client\Model\CarEntityModel.cs" />
-    <Compile Include="Client\Model\CarEntityModelList.cs" />
-    <Compile Include="Client\Model\ExceptionEntityModel.cs" />
-    <Compile Include="Client\Model\IModel.cs" />
-    <Compile Include="Client\Model\IModelList.cs" />
-    <Compile Include="Client\State.cs" />
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Packages\Constants.cs" />
+    <Compile Include="Packages\DataTable\DataTableRequestBody.cs" />
+    <Compile Include="Packages\DataTable\DataTableRequestPackage.cs" />
+    <Compile Include="Packages\DataTable\DataTableResponseBody.cs" />
+    <Compile Include="Packages\DataTable\DataTableResponsePackage.cs" />
+    <Compile Include="Packages\Exeption\ExceptionResponseBody.cs" />
+    <Compile Include="Packages\Exeption\ExceptionResponsePackage.cs" />
+    <Compile Include="Packages\IBody.cs" />
+    <Compile Include="Packages\IPackage.cs" />
+    <Compile Include="Packages\Package.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Packages\Utils.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -88,12 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Shared\Shared.csproj">
-      <Project>{142d793c-5c56-4fd4-a536-3712e04dba29}</Project>
-      <Name>Shared</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
